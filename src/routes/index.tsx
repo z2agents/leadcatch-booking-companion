@@ -1,23 +1,46 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/landing/Nav";
+import { Hero } from "@/components/landing/Hero";
+import { Leak } from "@/components/landing/Leak";
+import { HowItWorks } from "@/components/landing/HowItWorks";
+import { Everything } from "@/components/landing/Everything";
+import { Portal } from "@/components/landing/Portal";
+import { Statement } from "@/components/landing/Statement";
+import { Book } from "@/components/landing/Book";
+import { Faq } from "@/components/landing/Faq";
+import { Footer } from "@/components/landing/Footer";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Z2 Agents — AI receptionists that answer every call and book appointments";
+const description =
+  "Stop losing clients to missed calls. Z2 Agents sets up AI calling and chat agents that talk like humans and book appointments into your Google Calendar 24/7.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="overflow-x-clip">
+      <Nav />
+      <Hero />
+      <Leak />
+      <HowItWorks />
+      <Everything />
+      <Portal />
+      <Statement />
+      <Book />
+      <Faq />
+      <Footer />
+    </main>
   );
 }
