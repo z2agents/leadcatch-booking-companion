@@ -4,11 +4,11 @@ import { CalendarCheck, Check, Phone, PhoneIncoming, Sparkles } from "lucide-rea
 type Line = { who: "ai" | "caller"; text: string };
 
 const script: Line[] = [
-  { who: "ai", text: "Hi, thanks for calling Luxe Hair Studio! How can I help?" },
-  { who: "caller", text: "Do you have anything Thursday for a balayage?" },
-  { who: "ai", text: "Yes! 2:30 or 4:00 PM with Maya — which works?" },
+  { who: "ai", text: "Luxe Hair Studio — how can I help?" },
+  { who: "caller", text: "Anything Thursday for balayage?" },
+  { who: "ai", text: "2:30 or 4 PM with Maya?" },
   { who: "caller", text: "4 please." },
-  { who: "ai", text: "Booked ✓ Thu 4:00 PM. I've texted you a confirmation." },
+  { who: "ai", text: "Booked ✓ Thu 4 PM. Text sent." },
 ];
 
 // step 0 = ringing, 1..5 = lines, 6 = booking card
@@ -51,7 +51,7 @@ export function PhoneDemo() {
                 <p className="text-sm text-bone/60">(555) 018-2234</p>
               </div>
               <p className="mt-6 rounded-full bg-bone/10 px-4 py-2 text-xs text-bone/70">
-                You're mid-appointment…
+                You're with a client…
               </p>
             </div>
           ) : (

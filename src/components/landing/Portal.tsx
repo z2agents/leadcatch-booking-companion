@@ -36,7 +36,7 @@ export function Portal() {
             </h2>
           </div>
           <p className="max-w-sm text-bone/70 md:justify-self-end">
-            Your whole week, booked while you worked — synced to your Google Calendar.
+            Your week, booked while you worked.
           </p>
         </Reveal>
 

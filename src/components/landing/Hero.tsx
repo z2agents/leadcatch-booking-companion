@@ -25,7 +25,7 @@ export function Hero() {
         <div>
           <span className="inline-flex animate-rise items-center gap-2 rounded-full border border-bone/15 bg-bone/5 px-3 py-1.5 text-xs font-medium text-bone/80">
             <span className="size-1.5 animate-blink rounded-full bg-lime" />
-            AI receptionist that never sleeps
+            AI receptionist · 24/7
           </span>
           <h1 className="mt-6 animate-rise text-6xl font-bold leading-[0.92] [animation-delay:80ms] sm:text-7xl lg:text-[5.5rem]">
             You're busy.
@@ -33,8 +33,7 @@ export function Hero() {
             <span className="text-serif-accent text-lime">We pick up.</span>
           </h1>
           <p className="mt-6 max-w-md animate-rise text-lg text-bone/70 [animation-delay:160ms]">
-            An AI agent that talks like a human, answers every call and books appointments straight
-            into your calendar — 24/7.
+            Answers every call. Books every client.
           </p>
           <div className="mt-9 flex animate-rise flex-wrap gap-3 [animation-delay:240ms]">
             <Button asChild variant="lime" size="xl">
@@ -47,7 +46,7 @@ export function Hero() {
             </Button>
           </div>
           <ul className="mt-10 flex animate-rise flex-wrap gap-x-6 gap-y-2 text-sm text-bone/60 [animation-delay:320ms]">
-            {["No new staff", "No extra ad spend", "Live in 7 days"].map((t) => (
+            {["No new staff", "No extra ads", "Live in 7 days"].map((t) => (
               <li key={t} className="flex items-center gap-1.5">
                 <Check className="size-4 text-lime" /> {t}
               </li>

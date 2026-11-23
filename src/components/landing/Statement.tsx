@@ -2,9 +2,9 @@ import { Check, X } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const rows = [
-  { no: "Hire another receptionist", yes: "AI answers every call, 24/7" },
-  { no: "Spend more on ads", yes: "Convert the leads you already get" },
-  { no: "Call people back hours later", yes: "Reply in under a second" },
+  { no: "Hire a receptionist", yes: "AI answers 24/7" },
+  { no: "Spend more on ads", yes: "Convert leads you have" },
+  { no: "Call back hours later", yes: "Reply instantly" },
 ];
 
 export function Statement() {

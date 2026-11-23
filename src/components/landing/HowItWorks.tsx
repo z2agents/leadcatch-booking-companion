@@ -21,7 +21,7 @@ export function HowItWorks() {
           </svg>
 
           <Reveal delay={0}>
-            <Step n="01" title="A client reaches out">
+            <Step n="01" title="Client reaches out">
               <div className="grid grid-cols-2 gap-2.5">
                 {[
                   { i: Phone, l: "Call" },
@@ -38,7 +38,7 @@ export function HowItWorks() {
           </Reveal>
 
           <Reveal delay={150}>
-            <Step n="02" title="Your AI talks & books">
+            <Step n="02" title="AI talks & books">
               <div className="flex items-center gap-3 rounded-2xl bg-bone/8 p-4">
                 <span className="grid size-11 place-items-center rounded-full bg-lime text-claret-deep">
                   <Sparkles className="size-5" />
@@ -46,13 +46,13 @@ export function HowItWorks() {
                 <Waveform bars={14} />
               </div>
               <p className="mt-3 rounded-2xl rounded-bl-md bg-bone/8 px-3.5 py-2.5 text-sm text-bone/80">
-                "I have 4 PM Thursday — shall I lock it in?"
+                "4 PM Thursday — lock it in?"
               </p>
             </Step>
           </Reveal>
 
           <Reveal delay={300}>
-            <Step n="03" title="It lands in your calendar">
+            <Step n="03" title="Lands in your calendar">
               <div className="space-y-2">
                 {[
                   { t: "10:00", n: "Sarah · Facial" },

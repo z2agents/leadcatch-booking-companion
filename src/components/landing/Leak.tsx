@@ -15,15 +15,15 @@ const scenes = [
 ];
 
 const stats = [
-  { n: "62%", t: "of calls to small businesses go unanswered" },
-  { n: "85%", t: "of callers who hit voicemail never call back" },
-  { n: "78%", t: "book with whoever responds first" },
+  { n: "62%", t: "of calls go unanswered" },
+  { n: "85%", t: "never call back" },
+  { n: "78%", t: "book whoever replies first" },
 ];
 
 const timeline = [
-  { icon: PhoneMissed, t: "0s", l: "Phone rings. You're busy." },
-  { icon: Voicemail, t: "20s", l: "Voicemail. They hang up." },
-  { icon: UserX, t: "2 min", l: "They book your competitor." },
+  { icon: PhoneMissed, t: "0s", l: "Phone rings." },
+  { icon: Voicemail, t: "20s", l: "Voicemail." },
+  { icon: UserX, t: "2 min", l: "They book elsewhere." },
 ];
 
 const money = (n: number) => `$${n.toLocaleString("en-US")}`;
@@ -103,7 +103,7 @@ export function Leak() {
 
           <Reveal delay={150}>
             <div className="grain rounded-[2rem] bg-claret p-8 text-bone shadow-lift md:p-10">
-              <p className="text-sm uppercase tracking-[0.2em] text-bone/60">Your leak, calculated</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-bone/60">Your monthly leak</p>
               <p className="mt-3 font-display text-6xl font-bold text-lime tabular-nums md:text-7xl">
                 {money(loss)}
                 <span className="text-2xl text-bone/60">/mo</span>
@@ -112,7 +112,7 @@ export function Leak() {
               <div className="mt-8 space-y-7">
                 <div>
                   <div className="mb-3 flex justify-between text-sm">
-                    <span className="text-bone/70">Missed calls per week</span>
+                    <span className="text-bone/70">Missed calls / week</span>
                     <span className="font-semibold">{calls}</span>
                   </div>
                   <Slider
@@ -126,7 +126,7 @@ export function Leak() {
                 </div>
                 <div>
                   <div className="mb-3 flex justify-between text-sm">
-                    <span className="text-bone/70">Average booking value</span>
+                    <span className="text-bone/70">Avg. booking value</span>
                     <span className="font-semibold">{money(value)}</span>
                   </div>
                   <Slider
@@ -139,7 +139,7 @@ export function Leak() {
                   />
                 </div>
               </div>
-              <p className="mt-6 text-xs text-bone/50">Assumes half of missed callers would have booked.</p>
+              <p className="mt-6 text-xs text-bone/50">Assumes 50% would book.</p>
               <Button asChild variant="lime" size="xl" className="mt-6 w-full">
                 <a href={BOOK_ANCHOR}>Plug the leak</a>
               </Button>

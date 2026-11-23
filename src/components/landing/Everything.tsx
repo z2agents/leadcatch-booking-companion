@@ -28,14 +28,14 @@ export function Everything() {
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-claret-soft">What you get</p>
           <h2 className="mt-4 max-w-3xl text-5xl font-bold leading-[0.95] text-claret md:text-6xl">
-            Covered from <span className="text-serif-accent">every angle.</span>
+            One platform. <span className="text-serif-accent">One login.</span>
           </h2>
-          <p className="mt-4 max-w-md text-muted-foreground">One system. Every channel your clients use.</p>
+          <p className="mt-4 max-w-md text-muted-foreground">Calls, chats, calendar, CRM — all connected.</p>
         </Reveal>
 
         <div className="mt-14 grid auto-rows-[minmax(220px,auto)] gap-4 md:grid-cols-6">
           {/* AI calling */}
-          <Tile className="md:col-span-4" dark icon={Phone} title="AI calling agent" sub="Answers, qualifies and books — sounds human.">
+          <Tile className="md:col-span-4" dark icon={Phone} title="AI calling agent" sub="Answers & books, 24/7.">
             <div className="mt-6 flex items-center gap-4 rounded-2xl bg-bone/8 p-4">
               <span className="relative grid size-12 place-items-center rounded-full bg-lime text-claret-deep">
                 <span className="absolute inset-0 animate-ring rounded-full bg-lime/50" />
@@ -47,20 +47,20 @@ export function Everything() {
           </Tile>
 
           {/* Missed call text back */}
-          <Tile className="md:col-span-2" icon={PhoneMissed} title="Missed-call text-back" sub="Missed it? They get a text in seconds.">
+          <Tile className="md:col-span-2" icon={PhoneMissed} title="Missed-call text-back" sub="Texts back in seconds.">
             <div className="mt-5 space-y-2 text-[13px]">
               <div className="flex items-center gap-2 text-xs text-danger">
                 <PhoneMissed className="size-3.5" /> Missed call · 2:14 PM
               </div>
               <p className="w-fit max-w-[90%] rounded-2xl rounded-bl-md bg-claret px-3 py-2 text-bone">
-                Sorry we missed you! Want to book? Reply with a day 📅
+                Sorry we missed you! Book a time? 📅
               </p>
               <p className="ml-auto w-fit rounded-2xl rounded-br-md bg-lime px-3 py-2 text-claret-deep">Friday works!</p>
             </div>
           </Tile>
 
           {/* Chat agents */}
-          <Tile className="md:col-span-2" icon={MessageCircle} title="AI chat agents" sub="WhatsApp, Instagram, Facebook & web.">
+          <Tile className="md:col-span-2" icon={MessageCircle} title="AI chat agents" sub="WhatsApp, Instagram, Facebook, web.">
             <div className="mt-6 flex justify-between">
               {[MessageCircle, Instagram, Facebook, Globe].map((I, k) => (
                 <span key={k} className="grid size-12 animate-float place-items-center rounded-2xl bg-claret text-lime shadow-lift" style={{ animationDelay: `${k * 0.3}s` }}>
@@ -71,12 +71,12 @@ export function Everything() {
           </Tile>
 
           {/* Calendar */}
-          <Tile className="md:col-span-4 md:row-span-2" icon={CalendarDays} title="Calendar & online booking" sub="Synced with Google Calendar. Always up to date.">
+          <Tile className="md:col-span-4 md:row-span-2" icon={CalendarDays} title="Calendar & booking" sub="Synced with Google Calendar.">
             <MiniCalendar />
           </Tile>
 
           {/* Website */}
-          <Tile className="md:col-span-2" dark icon={Globe} title="Hosted website" sub="Landing page with a talking agent built in.">
+          <Tile className="md:col-span-2" dark icon={Globe} title="Hosted website" sub="Your AI built in.">
             <div className="mt-5 overflow-hidden rounded-xl border border-bone/10 bg-ink">
               <div className="flex gap-1 border-b border-bone/10 px-2.5 py-2">
                 {[0, 1, 2].map((k) => <span key={k} className="size-2 rounded-full bg-bone/25" />)}
@@ -93,9 +93,9 @@ export function Everything() {
           </Tile>
 
           {/* Widgets */}
-          <Tile className="md:col-span-2" icon={MousePointerClick} title="Website widgets" sub="Chat + booking on your existing site.">
+          <Tile className="md:col-span-2" icon={MousePointerClick} title="Website widgets" sub="Chat + booking on your site.">
             <div className="mt-5 flex items-end justify-end gap-2">
-              <span className="rounded-2xl rounded-br-md bg-card px-3 py-2 text-xs shadow-lift">Hi! Need a booking? 👋</span>
+              <span className="rounded-2xl rounded-br-md bg-card px-3 py-2 text-xs shadow-lift">Need a booking? 👋</span>
               <span className="grid size-11 place-items-center rounded-full bg-claret text-lime shadow-lift">
                 <MessageSquareText className="size-5" />
               </span>
@@ -103,7 +103,7 @@ export function Everything() {
           </Tile>
 
           {/* CRM */}
-          <Tile className="md:col-span-2" icon={Users} title="CRM & lead pipeline" sub="Every lead tracked, nothing slips.">
+          <Tile className="md:col-span-2" icon={Users} title="CRM & pipeline" sub="Every lead, tracked.">
             <div className="mt-5 grid grid-cols-3 gap-2">
               {[
                 { h: "New", n: 3 },
@@ -121,7 +121,7 @@ export function Everything() {
           </Tile>
 
           {/* Automations */}
-          <Tile className="md:col-span-2" dark icon={Workflow} title="Automations" sub="Confirmations, reminders, follow-ups, no-shows.">
+          <Tile className="md:col-span-2" dark icon={Workflow} title="Automations" sub="Confirm, remind, follow up.">
             <div className="mt-6 flex items-center justify-between gap-1">
               {[
                 { i: Check, l: "Confirm" },
@@ -143,7 +143,7 @@ export function Everything() {
           </Tile>
 
           {/* Dashboard */}
-          <Tile className="md:col-span-6" icon={LayoutDashboard} title="Owner dashboard" sub="Calls, bookings and revenue — one glance." horizontal>
+          <Tile className="md:col-span-6" icon={LayoutDashboard} title="Your dashboard" sub="All of it. One login." horizontal>
             <div className="flex h-24 flex-1 items-end gap-2">
               {[35, 50, 42, 64, 58, 78, 70, 92, 85, 100].map((h, k) => (
                 <div
