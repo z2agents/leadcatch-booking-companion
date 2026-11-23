@@ -8,6 +8,14 @@
 // hosting already compresses at the edge.
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { loadEnv } from "vite";
+
+// Local development only: expose GHL_* values from .env.local to the server functions
+// (Vite only exposes VITE_* by itself). On Vercel the same names come from Project Settings.
+// .env.local is git-ignored, so the token never reaches the public repo.
+for (const [key, value] of Object.entries(loadEnv(process.env["NODE_ENV"] ?? "development", process.cwd(), "GHL_"))) {
+  process.env[key] ??= value;
+}
 
 export default defineConfig({
   tanstackStart: {
