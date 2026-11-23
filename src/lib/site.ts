@@ -1,5 +1,5 @@
 /** GHL booking calendar shown in the booking section. */
-export const BOOKING_URL = "https://api.leadconnectorhq.com/widget/booking/GOJemuzY7aZmFSDO7HSI";
+export const BOOKING_URL = "https://api.leadconnectorhq.com/widget/booking/QZ3JU9yCIqPT8BRYkdkf";
 
 export const BOOK_ANCHOR = "#book";
 
