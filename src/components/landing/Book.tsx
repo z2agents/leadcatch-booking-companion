@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { BOOKING_URL } from "@/lib/site";
+import { BookingCalendar } from "@/components/site/BookingCalendar";
 import { Reveal } from "./Reveal";
 
 export function Book() {
@@ -25,14 +25,7 @@ export function Book() {
         </Reveal>
 
         <Reveal delay={150}>
-          <div className="overflow-hidden rounded-[2rem] bg-card p-2 shadow-lift">
-            <iframe
-              src={BOOKING_URL}
-              title="Book a free demo call with Z2 Agents"
-              loading="lazy"
-              className="block h-[800px] w-full rounded-[1.6rem] border-0 bg-card"
-            />
-          </div>
+          <BookingCalendar />
         </Reveal>
       </div>
     </section>

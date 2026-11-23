@@ -31,5 +31,7 @@ use the editor.
 
 ## Project rules
 - Landing page sections live in `src/components/landing/`, composed by `src/routes/index.tsx` — keeps the route thin and sections reusable.
+- Inner pages wrap content in `src/components/site/PageShell` (Nav/Footer with `onHome={false}`) and set head via `pageHead()` in `src/lib/seo.ts` — homepage anchors stay intact while inner pages link back to `/` sections.
+- Contact submissions are validated by `contactSchema` (`src/lib/contact.ts`) and inserted server-side into `contact_submissions`, which has no visitor policies — visitors can't read submissions back.
 - Booking link and lost-revenue formula live in `src/lib/site.ts` (tested in `site.test.ts`) — one place to change the CTA target and calculator assumptions.
 - The GHL calendar is embedded as a plain fixed-height iframe, without GHL's `form_embed.js` — that script hid the iframe off-screen.
