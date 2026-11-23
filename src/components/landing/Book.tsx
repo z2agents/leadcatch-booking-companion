@@ -1,6 +1,35 @@
-import { Check } from "lucide-react";
-import { BookingCalendar } from "@/components/site/BookingCalendar";
+import { ArrowRight, CalendarCheck, Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLeadFlow } from "@/components/site/LeadFlow";
 import { Reveal } from "./Reveal";
+
+/** The homepage no longer embeds the calendar: it starts the 2-step booking flow instead. */
+function BookCta() {
+  const { open } = useLeadFlow();
+  return (
+    <div className="flex h-full flex-col justify-center rounded-[2rem] bg-card p-8 text-claret shadow-lift md:p-10">
+      <span className="grid size-14 place-items-center rounded-2xl bg-lime text-claret-deep">
+        <CalendarCheck className="size-7" />
+      </span>
+      <h3 className="mt-6 text-3xl font-bold leading-tight md:text-4xl">
+        Two quick steps. <span className="text-serif-accent">Then it's booked.</span>
+      </h3>
+      <ol className="mt-6 space-y-3 text-claret/80">
+        <li className="flex items-center gap-3">
+          <span className="grid size-7 place-items-center rounded-full bg-claret text-xs font-bold text-lime">1</span>
+          Tell us where to reach you
+        </li>
+        <li className="flex items-center gap-3">
+          <span className="grid size-7 place-items-center rounded-full bg-claret text-xs font-bold text-lime">2</span>
+          Pick a time that suits you
+        </li>
+      </ol>
+      <Button variant="claret" size="xl" className="mt-8 w-full sm:w-fit" onClick={open}>
+        Book a free demo call <ArrowRight />
+      </Button>
+    </div>
+  );
+}
 
 export function Book() {
   return (
@@ -25,7 +54,7 @@ export function Book() {
         </Reveal>
 
         <Reveal delay={150}>
-          <BookingCalendar />
+          <BookCta />
         </Reveal>
       </div>
     </section>

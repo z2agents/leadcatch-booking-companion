@@ -3,8 +3,8 @@ import { LegalPage, LegalSection } from "@/components/site/LegalPage";
 import { CONTACT_EMAIL, SMS_DISCLOSURE } from "@/lib/contact";
 import { pageHead } from "@/lib/seo";
 
-const ADDRESS = "[ADDRESS]";
-const UPDATED = "[DATE]";
+const ADDRESS = "Karachi, Pakistan";
+const UPDATED = "November 23, 2026";
 
 export const Route = createFileRoute("/privacy-policy")({
   head: () =>

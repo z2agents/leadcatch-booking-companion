@@ -4,7 +4,7 @@ import { CONTACT_EMAIL, SMS_DISCLOSURE } from "@/lib/contact";
 import { pageHead } from "@/lib/seo";
 
 const GOVERNING_LAW = "[GOVERNING LAW]";
-const UPDATED = "[DATE]";
+const UPDATED = "November 23, 2026";
 
 export const Route = createFileRoute("/terms-of-service")({
   head: () =>

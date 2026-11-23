@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarCheck, MessageSquareText } from "lucide-react";
 import { Reveal } from "@/components/landing/Reveal";
@@ -15,6 +16,17 @@ export const Route = createFileRoute("/thank-you")({
 });
 
 function ThankYou() {
+  // GHL redirects here after booking, but inside the calendar's frame. Same site, so lift the page out of the frame.
+  useEffect(() => {
+    if (window.self !== window.top) {
+      try {
+        window.top?.location.replace(window.location.href);
+      } catch {
+        /* different origin: stay inside the frame */
+      }
+    }
+  }, []);
+
   return (
     <PageShell>
       <PageHero eyebrow="Booking confirmed" title="You're" accent="booked." line="One quick step before our call." />

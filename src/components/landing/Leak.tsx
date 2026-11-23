@@ -2,7 +2,8 @@ import { useState } from "react";
 import { PhoneMissed, Voicemail, UserX } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
-import { BOOK_ANCHOR, monthlyLeak } from "@/lib/site";
+import { monthlyLeak } from "@/lib/site";
+import { useLeadFlow } from "@/components/site/LeadFlow";
 import salon from "@/assets/busy-salon.jpg";
 import spa from "@/assets/busy-spa.jpg";
 import contractor from "@/assets/busy-contractor.jpg";
@@ -29,6 +30,7 @@ const timeline = [
 const money = (n: number) => `$${n.toLocaleString("en-US")}`;
 
 export function Leak() {
+  const { open: openLead } = useLeadFlow();
   const [calls, setCalls] = useState(25);
   const [value, setValue] = useState(200);
   const loss = monthlyLeak(calls, value);
@@ -140,8 +142,8 @@ export function Leak() {
                 </div>
               </div>
               <p className="mt-6 text-xs text-bone/50">Assumes 50% would book.</p>
-              <Button asChild variant="lime" size="xl" className="mt-6 w-full">
-                <a href={BOOK_ANCHOR}>Plug the leak</a>
+              <Button variant="lime" size="xl" className="mt-6 w-full" onClick={openLead}>
+                Plug the leak
               </Button>
             </div>
           </Reveal>

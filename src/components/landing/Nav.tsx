@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { BOOK_ANCHOR } from "@/lib/site";
+import { useLeadFlow } from "@/components/site/LeadFlow";
 import { Logo } from "./Logo";
 
 const links = [
@@ -13,6 +12,7 @@ const links = [
 
 /** `onHome` keeps in-page anchors; other pages link back to the homepage sections. */
 export function Nav({ onHome = true }: { onHome?: boolean }) {
+  const { open: openLead } = useLeadFlow();
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 24);
@@ -39,8 +39,8 @@ export function Nav({ onHome = true }: { onHome?: boolean }) {
             </a>
           ))}
         </div>
-        <Button asChild variant="lime" size="sm" className="h-10 px-5">
-          {onHome ? <a href={BOOK_ANCHOR}>Book a free demo</a> : <Link to="/book">Book a free demo</Link>}
+        <Button variant="lime" size="sm" className="h-10 px-5" onClick={openLead}>
+          Book a free demo
         </Button>
       </nav>
     </header>

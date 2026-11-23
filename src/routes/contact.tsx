@@ -67,7 +67,9 @@ function Contact() {
             {[
               { icon: Mail, label: "Email", value: CONTACT_EMAIL },
               { icon: Phone, label: "Phone", value: CONTACT_PHONE },
-            ].map(({ icon: Icon, label, value }) => (
+            ]
+              .filter((c) => c.value)
+              .map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex items-center gap-4 rounded-3xl border border-border bg-card p-5 text-claret">
                 <span className="grid size-11 place-items-center rounded-xl bg-claret text-lime">
                   <Icon className="size-5" />

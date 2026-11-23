@@ -1,6 +1,6 @@
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { BOOK_ANCHOR } from "@/lib/site";
+import { useLeadFlow } from "@/components/site/LeadFlow";
 import { PhoneDemo } from "./PhoneDemo";
 
 const industries = [
@@ -19,6 +19,7 @@ const industries = [
 ];
 
 export function Hero() {
+  const { open: openLead } = useLeadFlow();
   return (
     <section id="top" className="grain relative overflow-hidden bg-hero text-bone">
       <div className="mx-auto grid max-w-6xl items-center gap-16 px-5 pb-20 pt-32 md:pt-40 lg:grid-cols-[1.1fr_1fr]">
@@ -36,10 +37,8 @@ export function Hero() {
             Answers every call. Books every client.
           </p>
           <div className="mt-9 flex animate-rise flex-wrap gap-3 [animation-delay:240ms]">
-            <Button asChild variant="lime" size="xl">
-              <a href={BOOK_ANCHOR}>
-                Book a free demo call <ArrowRight />
-              </a>
+            <Button variant="lime" size="xl" onClick={openLead}>
+              Book a free demo call <ArrowRight />
             </Button>
             <Button asChild variant="bone" size="xl">
               <a href="#how">See how it works</a>

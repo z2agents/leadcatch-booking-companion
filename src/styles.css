@@ -268,3 +268,84 @@
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ---- Z2: smooth page and pop-up motion (transform/opacity only, GPU friendly) ---- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.42s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+::view-transition-old(root) {
+  animation-name: z2-page-out;
+}
+::view-transition-new(root) {
+  animation-name: z2-page-in;
+}
+@keyframes z2-page-out {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+@keyframes z2-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.z2-overlay[data-state="open"] {
+  animation: z2-fade-in 0.32s ease-out both;
+}
+.z2-overlay[data-state="closed"] {
+  animation: z2-fade-out 0.22s ease-in both;
+}
+.z2-dialog {
+  will-change: transform, opacity;
+}
+.z2-dialog[data-state="open"] {
+  animation: z2-dialog-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.z2-dialog[data-state="closed"] {
+  animation: z2-dialog-out 0.22s cubic-bezier(0.4, 0, 1, 1) both;
+}
+.z2-progress {
+  animation: z2-progress 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+@keyframes z2-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes z2-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes z2-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+}
+@keyframes z2-dialog-out {
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+@keyframes z2-progress {
+  from {
+    transform: scaleX(0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  .z2-overlay,
+  .z2-dialog,
+  .z2-progress {
+    animation: none !important;
+  }
+}

@@ -1,8 +1,8 @@
 import { z } from "zod";
 
-/** Placeholders the owner replaces with real contact details. */
-export const CONTACT_EMAIL = "[EMAIL]";
-export const CONTACT_PHONE = "[PHONE]";
+/** Public contact details. Leave CONTACT_PHONE empty to hide the phone card. */
+export const CONTACT_EMAIL = "z2agents.official@gmail.com";
+export const CONTACT_PHONE = "";
 
 /** Required carrier disclosure shown under each SMS consent box. */
 export const SMS_DISCLOSURE =

@@ -1,6 +1,34 @@
 import { useEffect, useState } from "react";
 import { CalendarCheck, Check, Phone, PhoneIncoming, Sparkles } from "lucide-react";
 
+/** iOS-style status bar glyphs: cellular bars, Wi-Fi fan and battery with the percentage inside. */
+function IosStatusIcons({ battery = 87 }: { battery?: number }) {
+  const fill = (21 * battery) / 100;
+  return (
+    <span className="flex items-center gap-[5px]" aria-hidden>
+      <svg viewBox="0 0 18 12" className="h-[11px] w-auto" fill="currentColor">
+        <rect x="0" y="7.8" width="3.2" height="4.2" rx="1" />
+        <rect x="4.7" y="5.4" width="3.2" height="6.6" rx="1" />
+        <rect x="9.4" y="3" width="3.2" height="9" rx="1" />
+        <rect x="14.1" y="0.6" width="3.2" height="11.4" rx="1" />
+      </svg>
+      <svg viewBox="0 0 17 12.5" className="h-[11px] w-auto" fill="currentColor">
+        <path d="M0.72 4.02A11 11 0 0 1 16.28 4.02L14.58 5.72A8.6 8.6 0 0 0 2.42 5.72Z" />
+        <path d="M3.27 6.57A7.4 7.4 0 0 1 13.73 6.57L12.04 8.26A5 5 0 0 0 4.96 8.26Z" />
+        <path d="M5.81 9.11A3.8 3.8 0 0 1 11.19 9.11L8.5 11.8Z" />
+      </svg>
+      <svg viewBox="0 0 28 13" className="h-[12px] w-auto">
+        <rect x="0.5" y="0.5" width="24" height="12" rx="3.8" fill="none" stroke="currentColor" strokeOpacity="0.4" />
+        <rect x="2" y="2" width={fill} height="9" rx="2.4" fill="currentColor" />
+        <rect x="25.6" y="4.4" width="1.6" height="4.2" rx="0.8" fill="currentColor" fillOpacity="0.4" />
+        <text x="12.5" y="9.6" textAnchor="middle" fontSize="8.4" fontWeight="700" fill="#140a0d" fontFamily="system-ui, -apple-system, sans-serif">
+          {battery}
+        </text>
+      </svg>
+    </span>
+  );
+}
+
 type Line = { who: "ai" | "caller"; text: string };
 
 const script: Line[] = [
@@ -27,14 +55,43 @@ export function PhoneDemo() {
   const booked = step >= 6;
 
   return (
-    <div className="relative mx-auto w-full max-w-[340px]">
+    <div className="relative mx-auto w-full max-w-[316px]">
       {/* glow */}
       <div className="absolute -inset-10 rounded-full bg-lime/10 blur-3xl" />
 
-      {/* phone */}
-      <div className="relative rounded-[2.75rem] border border-bone/15 bg-claret-deep p-3 shadow-lift">
-        <div className="relative h-[560px] overflow-hidden rounded-[2.2rem] bg-ink">
-          <div className="absolute left-1/2 top-2 z-10 h-6 w-24 -translate-x-1/2 rounded-full bg-claret-deep" />
+      {/* phone: iPhone-style titanium frame */}
+      <div className="relative rounded-[3.25rem] bg-gradient-to-b from-[#4a4043] via-[#2a2225] to-[#3a3134] p-[10px] shadow-lift ring-1 ring-white/10">
+        {/* side buttons */}
+        <span aria-hidden className="absolute -left-[3px] top-[112px] h-7 w-[3px] rounded-l bg-[#3a3134]" />
+        <span aria-hidden className="absolute -left-[3px] top-[160px] h-12 w-[3px] rounded-l bg-[#3a3134]" />
+        <span aria-hidden className="absolute -left-[3px] top-[222px] h-12 w-[3px] rounded-l bg-[#3a3134]" />
+        <span aria-hidden className="absolute -right-[3px] top-[180px] h-20 w-[3px] rounded-r bg-[#3a3134]" />
+
+        <div className="relative h-[612px] overflow-hidden rounded-[2.7rem] bg-ink">
+          {/* status bar */}
+          <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-7 pt-[14px] text-[13px] font-semibold text-bone">
+            <span>9:41</span>
+            <IosStatusIcons />
+          </div>
+
+          {/* Dynamic Island: expands into a live call activity once the AI picks up */}
+          <div
+            className={`absolute left-1/2 top-[11px] z-20 flex h-[30px] -translate-x-1/2 items-center justify-between rounded-full bg-black px-2.5 transition-all duration-500 ease-out ${
+              ringing ? "w-[104px]" : "w-[168px]"
+            }`}
+          >
+            {!ringing && (
+              <>
+                <span className="grid size-5 place-items-center rounded-full bg-lime text-claret-deep">
+                  <Phone className="size-3" />
+                </span>
+                <Waveform active={speaking} bars={4} />
+              </>
+            )}
+          </div>
+
+          {/* home indicator */}
+          <div className="absolute bottom-2 left-1/2 z-10 h-[5px] w-28 -translate-x-1/2 rounded-full bg-bone/40" />
 
           {ringing ? (
             <div className="flex h-full flex-col items-center justify-center gap-5 text-bone">
@@ -55,7 +112,7 @@ export function PhoneDemo() {
               </p>
             </div>
           ) : (
-            <div className="flex h-full flex-col px-4 pb-5 pt-12 text-bone">
+            <div className="flex h-full flex-col px-4 pb-7 pt-14 text-bone">
               <div className="flex items-center gap-3 rounded-2xl bg-bone/5 p-3">
                 <span className="grid size-10 place-items-center rounded-full bg-lime text-claret-deep">
                   <Sparkles className="size-5" />

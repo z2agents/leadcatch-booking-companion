@@ -2,10 +2,10 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Reveal } from "./Reveal";
 
 const faqs = [
-  { q: "Does it really sound human?", a: "Yes — natural voice, trained on your business." },
-  { q: "Will it work with my calendar?", a: "Yes — it syncs with Google Calendar." },
-  { q: "How fast can I go live?", a: "Usually within 7 days — we set it all up." },
-  { q: "What if a caller needs a real person?", a: "It transfers the call or texts you instantly." },
+  { q: "Does it really sound human?", a: "Yes. It speaks naturally, understands interruptions and is trained on your services, prices and FAQs." },
+  { q: "Will it work with my calendar?", a: "It connects to Google Calendar, so every booking shows up instantly — no double bookings." },
+  { q: "How fast can I go live?", a: "Most businesses are live within 7 days. We set up everything for you." },
+  { q: "What if a caller needs a real person?", a: "The agent can transfer the call or take a message and text you right away." },
 ];
 
 export function Faq() {

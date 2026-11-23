@@ -9,6 +9,7 @@ import { Statement } from "@/components/landing/Statement";
 import { Book } from "@/components/landing/Book";
 import { Faq } from "@/components/landing/Faq";
 import { Footer } from "@/components/landing/Footer";
+import { AutoOpenAfter } from "@/components/site/LeadFlow";
 
 const title = "Z2 Agents — AI receptionists that answer every call and book appointments";
 const description =
@@ -35,6 +36,7 @@ function Index() {
       <Hero />
       <Leak />
       <HowItWorks />
+      <AutoOpenAfter id="how" />
       <Everything />
       <Portal />
       <Statement />
