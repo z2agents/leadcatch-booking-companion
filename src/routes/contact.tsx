@@ -12,6 +12,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { PageShell } from "@/components/site/PageShell";
 import { CONTACT_EMAIL, CONTACT_PHONE, SMS_DISCLOSURE, contactSchema } from "@/lib/contact";
 import { submitContact } from "@/lib/contact.functions";
+import { CONSENT_TEXT } from "@/lib/consent";
 import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
@@ -36,7 +37,7 @@ function Contact() {
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
-    const parsed = contactSchema.safeParse({ ...values, smsConsent, marketingConsent });
+    const parsed = contactSchema.safeParse({ ...values, smsConsent, marketingConsent, page: window.location.href });
     if (!parsed.success) {
       const next: Partial<Record<Fields, string>> = {};
       for (const issue of parsed.error.issues) {
@@ -144,13 +145,13 @@ function Contact() {
                     id="smsConsent"
                     checked={smsConsent}
                     onChange={setSmsConsent}
-                    label="I agree to receive SMS updates from Z2 Agents about my request."
+                    label={CONSENT_TEXT.contact.sms}
                   />
                   <ConsentBox
                     id="marketingConsent"
                     checked={marketingConsent}
                     onChange={setMarketingConsent}
-                    label="I agree to receive occasional marketing messages from Z2 Agents."
+                    label={CONSENT_TEXT.contact.marketing}
                   />
 
                   <p className="text-xs text-muted-foreground">

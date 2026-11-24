@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SMS_DISCLOSURE } from "@/lib/contact";
+import { CONSENT_TEXT } from "@/lib/consent";
 import { leadSchema, readLeadLocally, saveLeadLocally } from "@/lib/lead";
 import { submitLead } from "@/lib/lead.functions";
 
@@ -116,7 +117,7 @@ function LeadDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (v: b
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
-    const parsed = leadSchema.safeParse({ ...values, smsConsent, marketingConsent });
+    const parsed = leadSchema.safeParse({ ...values, smsConsent, marketingConsent, page: window.location.href });
     if (!parsed.success) {
       const next: Partial<Record<Fields, string>> = {};
       for (const issue of parsed.error.issues) next[issue.path[0] as Fields] ??= issue.message;
@@ -173,10 +174,10 @@ function LeadDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (v: b
         ))}
 
         <Consent id="lead-sms" checked={smsConsent} onChange={setSmsConsent}>
-          Text me about my booking from Z2 Agents.
+          {CONSENT_TEXT.lead.sms}
         </Consent>
         <Consent id="lead-marketing" checked={marketingConsent} onChange={setMarketingConsent}>
-          Send me occasional offers from Z2 Agents.
+          {CONSENT_TEXT.lead.marketing}
         </Consent>
 
         <Button type="submit" variant="claret" size="xl" className="w-full" disabled={busy}>

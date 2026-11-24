@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarCheck, MessageSquareText } from "lucide-react";
+import { CalendarCheck, Mail } from "lucide-react";
 import { Reveal } from "@/components/landing/Reveal";
 import { PageHero } from "@/components/site/PageHero";
 import { PageShell } from "@/components/site/PageShell";
@@ -40,19 +40,23 @@ function ThankYou() {
               <span className="w-fit rounded-full bg-lime px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-claret-deep">
                 Step 1
               </span>
+              {/* Email for now: switch back to "reply YES to our text" once Z2 has an approved texting number. */}
               <h2 className="mt-5 text-2xl font-bold leading-tight sm:text-3xl">
-                Confirm by replying <span className="text-serif-accent">YES</span> to our text.
+                Check your <span className="text-serif-accent">email.</span>
               </h2>
-              <div className="mt-auto space-y-2 pt-8 text-sm sm:text-[13px]">
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <MessageSquareText className="size-3.5" /> Z2 Agents · now
+              <p className="mt-3 text-muted-foreground">
+                Your invite is on its way. Add it to your calendar. Not there? Check spam.
+              </p>
+              <div className="mt-auto pt-8">
+                <div className="animate-pop rounded-2xl border border-border bg-background p-4 text-sm">
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <Mail className="size-3.5" /> Z2 Agents · now
+                  </div>
+                  <p className="mt-2 flex items-center gap-1.5 font-semibold">
+                    <CalendarCheck className="size-4 text-lime-deep" /> Your demo call is booked
+                  </p>
+                  <p className="mt-1 text-muted-foreground">Here's your time and the link to join.</p>
                 </div>
-                <p className="w-fit max-w-[85%] animate-pop rounded-2xl rounded-bl-md bg-claret px-3 py-2 text-bone">
-                  <CalendarCheck className="mr-1 inline size-3.5 text-lime" /> Your demo is booked. Reply YES to confirm.
-                </p>
-                <p className="ml-auto w-fit animate-pop rounded-2xl rounded-br-md bg-lime px-4 py-2 font-semibold text-claret-deep [animation-delay:600ms]">
-                  YES
-                </p>
               </div>
             </div>
           </Reveal>

@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { contactSchema } from "./contact";
+import { consentNote } from "./consent";
 
 /**
  * Public: one contact-form submission. Sent to GoHighLevel (the CRM) and, if configured,
@@ -17,7 +18,7 @@ export const submitContact = createServerFn({ method: "POST" })
       email: data.email,
       phone: data.phone,
       tags,
-      note: `Website contact form:\n${data.message}`,
+      note: `Website contact form:\n${data.message}\n\n${consentNote("contact", data, data.page)}`,
     });
 
     let toDb = false;

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { pageField } from "./consent";
 
 /** Public contact details. Leave CONTACT_PHONE empty to hide the phone card. */
 export const CONTACT_EMAIL = "z2agents.official@gmail.com";
@@ -21,6 +22,7 @@ export const contactSchema = z.object({
   // Both consents are optional and independent: sending the form never requires either.
   smsConsent: z.boolean().default(false),
   marketingConsent: z.boolean().default(false),
+  page: pageField,
 });
 
 export type ContactInput = z.input<typeof contactSchema>;

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { pageField } from "./consent";
 
 /** Step 1 of the booking flow: who is booking. */
 export const leadSchema = z.object({
@@ -13,6 +14,7 @@ export const leadSchema = z.object({
   // Consent is optional and never required to continue (carrier rules).
   smsConsent: z.boolean().default(false),
   marketingConsent: z.boolean().default(false),
+  page: pageField,
 });
 
 export type LeadInput = z.input<typeof leadSchema>;

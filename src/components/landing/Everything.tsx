@@ -1,23 +1,35 @@
 import type { ReactNode } from "react";
 import {
+  AlarmClock,
   Bell,
+  CalendarCheck,
   CalendarDays,
-  Check,
   Facebook,
   Instagram,
   MessageCircle,
   MessageSquareText,
   Phone,
   PhoneMissed,
+  RotateCcw,
   Send,
   Sparkles,
   Workflow,
   Globe,
   MousePointerClick,
+  UserPlus,
   Users,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { Waveform } from "./PhoneDemo";
+
+const automations = [
+  { i: UserPlus, l: "New lead", t: "Form, call or chat" },
+  { i: Send, l: "Instant reply", t: "Within seconds" },
+  { i: Bell, l: "You're alerted", t: "Name and number" },
+  { i: RotateCcw, l: "Didn't book?", t: "Friendly nudge" },
+  { i: AlarmClock, l: "Reminders", t: "Before every visit" },
+  { i: CalendarCheck, l: "No-show?", t: "Offered a new time" },
+];
 
 export function Everything() {
   return (
@@ -102,43 +114,47 @@ export function Everything() {
           </Tile>
 
           {/* CRM */}
-          <Tile compact className="md:col-span-2" icon={Users} title="CRM & pipeline" sub="Every lead, tracked.">
-            <div className="mt-5 grid grid-cols-3 gap-2">
+          <Tile compact className="md:col-span-4" icon={Users} title="CRM & pipeline" sub="Every lead, tracked.">
+            <div className="mt-5 grid grid-cols-4 gap-2">
               {[
                 { h: "New", n: 3 },
-                { h: "Booked", n: 2 },
+                { h: "Didn't book", n: 2 },
+                { h: "Booked", n: 3 },
                 { h: "Won", n: 1 },
               ].map((c, k) => (
                 <div key={c.h} className="rounded-xl bg-bone-deep p-2">
-                  <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{c.h}</p>
+                  <p className="mb-1.5 truncate text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{c.h}</p>
                   {Array.from({ length: c.n }).map((_, j) => (
-                    <div key={j} className={`mb-1.5 h-5 rounded-md ${k === 2 ? "bg-lime" : "bg-card"}`} />
+                    <div key={j} className={`mb-1.5 h-5 rounded-md ${k === 3 ? "bg-lime" : "bg-card"}`} />
                   ))}
                 </div>
               ))}
             </div>
           </Tile>
 
-          {/* Automations */}
-          <Tile compact className="md:col-span-2" dark icon={Workflow} title="Automations" sub="Confirm, remind, follow up.">
-            <div className="mt-6 flex items-center justify-between gap-1">
-              {[
-                { i: Check, l: "Confirm" },
-                { i: Bell, l: "Remind" },
-                { i: Send, l: "Follow up" },
-                { i: PhoneMissed, l: "No-show" },
-              ].map(({ i: I, l }, k, arr) => (
-                <div key={l} className="flex flex-1 items-center">
-                  <div className="flex flex-col items-center gap-1.5">
-                    <span className="grid size-10 place-items-center rounded-full bg-lime text-claret-deep">
-                      <I className="size-4" />
-                    </span>
-                    <span className="text-[11px] text-bone/70">{l}</span>
-                  </div>
-                  {k < arr.length - 1 && <span className="mx-1 mb-5 h-px flex-1 border-t border-dashed border-lime/50" />}
-                </div>
+          {/* Automations: the follow-up workflows set up for every client */}
+          <Tile
+            className="col-span-2 md:col-span-6"
+            dark
+            icon={Workflow}
+            title="Follow-ups on autopilot"
+            sub="Every lead gets a reply, a reminder and a second chance. Nobody slips through."
+          >
+            <ol className="relative mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
+              <span aria-hidden className="absolute inset-x-[8%] top-5 hidden border-t border-dashed border-lime/40 md:block" />
+              {automations.map(({ i: I, l, t }, k) => (
+                <li key={l} className="relative flex flex-col items-center gap-2 text-center">
+                  <span
+                    className="grid size-10 animate-pop place-items-center rounded-full bg-lime text-claret-deep ring-4 ring-claret"
+                    style={{ animationDelay: `${k * 0.12}s` }}
+                  >
+                    <I className="size-4" />
+                  </span>
+                  <span className="text-sm font-semibold leading-tight">{l}</span>
+                  <span className="text-xs text-bone/60">{t}</span>
+                </li>
               ))}
-            </div>
+            </ol>
           </Tile>
         </div>
       </div>
