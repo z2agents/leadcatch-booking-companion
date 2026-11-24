@@ -10,10 +10,10 @@ const faqs = [
 
 export function Faq() {
   return (
-    <section className="py-24 md:py-28">
+    <section className="py-16 md:py-28">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-[0.8fr_1.2fr]">
         <Reveal>
-          <h2 className="text-5xl font-bold leading-[0.95] text-claret">
+          <h2 className="text-4xl font-bold leading-[0.95] text-claret md:text-5xl">
             Quick <span className="text-serif-accent">answers.</span>
           </h2>
         </Reveal>
@@ -21,7 +21,7 @@ export function Faq() {
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((f) => (
               <AccordionItem key={f.q} value={f.q}>
-                <AccordionTrigger className="font-display text-lg text-claret hover:no-underline">{f.q}</AccordionTrigger>
+                <AccordionTrigger className="font-display text-base text-claret hover:no-underline md:text-lg">{f.q}</AccordionTrigger>
                 <AccordionContent className="text-base text-muted-foreground">{f.a}</AccordionContent>
               </AccordionItem>
             ))}

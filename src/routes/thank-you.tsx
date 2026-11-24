@@ -40,10 +40,10 @@ function ThankYou() {
               <span className="w-fit rounded-full bg-lime px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-claret-deep">
                 Step 1
               </span>
-              <h2 className="mt-5 text-3xl font-bold leading-tight">
+              <h2 className="mt-5 text-2xl font-bold leading-tight sm:text-3xl">
                 Confirm by replying <span className="text-serif-accent">YES</span> to our text.
               </h2>
-              <div className="mt-auto space-y-2 pt-8 text-[13px]">
+              <div className="mt-auto space-y-2 pt-8 text-sm sm:text-[13px]">
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <MessageSquareText className="size-3.5" /> Z2 Agents · now
                 </div>

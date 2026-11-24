@@ -31,11 +31,11 @@ function About() {
         accent="We pick up."
         line="AI agents that answer and book for appointment-based businesses."
       />
-      <section className="py-20 md:py-28">
+      <section className="py-16 md:py-28">
         <div className="mx-auto max-w-6xl px-5">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-claret-soft">How we work</p>
-            <h2 className="mt-4 max-w-3xl text-5xl font-bold leading-[0.95] text-claret md:text-6xl">
+            <h2 className="mt-4 max-w-3xl text-4xl font-bold leading-[0.95] text-claret md:text-6xl">
               Done for you. <span className="text-serif-accent">One login.</span>
             </h2>
           </Reveal>

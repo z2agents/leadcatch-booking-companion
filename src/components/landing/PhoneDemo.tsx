@@ -69,7 +69,7 @@ export function PhoneDemo() {
 
         <div className="relative h-[612px] overflow-hidden rounded-[2.7rem] bg-ink">
           {/* status bar */}
-          <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-7 pt-[14px] text-[13px] font-semibold text-bone">
+          <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-7 pt-[14px] text-xs font-semibold text-bone sm:text-[13px]">
             <span>9:41</span>
             <IosStatusIcons />
           </div>
@@ -130,7 +130,7 @@ export function PhoneDemo() {
                 {visible.map((l, i) => (
                   <div
                     key={i}
-                    className={`max-w-[85%] animate-rise rounded-2xl px-3.5 py-2.5 text-[13px] leading-snug ${
+                    className={`max-w-[85%] animate-rise rounded-2xl px-3.5 py-2.5 text-sm leading-snug sm:text-[13px] ${
                       l.who === "ai"
                         ? "self-start rounded-bl-md bg-bone/10"
                         : "self-end rounded-br-md bg-lime text-claret-deep"
@@ -154,7 +154,7 @@ export function PhoneDemo() {
       {/* floating chips */}
       {!ringing && (
         <div className="absolute -left-6 top-24 animate-pop rounded-2xl bg-bone px-3.5 py-2.5 text-claret shadow-lift sm:-left-16">
-          <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Answered in</p>
+          <p className="text-xs uppercase tracking-widest sm:text-[10px] text-muted-foreground">Answered in</p>
           <p className="font-display text-xl font-bold">0.8s</p>
         </div>
       )}
@@ -168,7 +168,7 @@ export function PhoneDemo() {
           </div>
           <p className="mt-2 font-display text-lg font-bold leading-tight">Balayage · Thu 4:00 PM</p>
           <p className="text-xs text-muted-foreground">with Maya · $180</p>
-          <div className="mt-3 flex items-center gap-1.5 rounded-lg bg-bone-deep px-2 py-1.5 text-[11px] font-medium">
+          <div className="mt-3 flex items-center gap-1.5 rounded-lg bg-bone-deep px-2 py-1.5 text-xs font-medium sm:text-[11px]">
             <CalendarCheck className="size-3.5" /> Synced to Google Calendar
           </div>
         </div>

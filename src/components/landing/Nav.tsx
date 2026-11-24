@@ -21,7 +21,7 @@ export function Nav({ onHome = true }: { onHome?: boolean }) {
     return () => window.removeEventListener("scroll", on);
   }, []);
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-3 md:pt-4">
       <nav
         className={`mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-2.5 transition-all duration-500 ${
           scrolled ? "bg-claret-deep/85 shadow-lift backdrop-blur-xl" : "bg-transparent"
@@ -40,7 +40,8 @@ export function Nav({ onHome = true }: { onHome?: boolean }) {
           ))}
         </div>
         <Button variant="lime" size="sm" className="h-10 px-5" onClick={openLead}>
-          Book a free demo
+          <span className="sm:hidden">Book demo</span>
+          <span className="hidden sm:inline">Book a free demo</span>
         </Button>
       </nav>
     </header>

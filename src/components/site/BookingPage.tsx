@@ -106,7 +106,7 @@ function ExitIntent() {
       <p className="w-fit rounded-full bg-lime px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-claret-deep">
         Last step
       </p>
-      <h2 className="mt-4 text-3xl font-bold leading-tight">
+      <h2 className="mt-4 text-2xl font-bold leading-tight sm:text-3xl">
         Wait, your slot <span className="text-serif-accent">isn't booked yet.</span>
       </h2>
       <p className="mt-4 flex items-start gap-2.5 rounded-2xl border border-danger/30 bg-danger/10 px-4 py-3 text-sm">
@@ -133,7 +133,7 @@ export function BookingPage({ above }: { above?: ReactNode }) {
   return (
     <PageShell>
       <section className="grain relative overflow-hidden bg-hero text-bone">
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-5 pb-24 pt-32 md:pt-40 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="relative mx-auto grid max-w-6xl gap-8 px-5 pb-16 pt-28 md:pb-24 md:pt-40 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
           <div className="lg:sticky lg:top-32 lg:self-start">
             <div className="max-w-sm animate-rise">
               <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.15em] text-bone/60">
@@ -144,7 +144,7 @@ export function BookingPage({ above }: { above?: ReactNode }) {
                 <div className="z2-progress h-full w-full origin-left rounded-full bg-lime" />
               </div>
             </div>
-            <h1 className="mt-8 animate-rise text-5xl font-bold leading-[0.95] [animation-delay:80ms] md:text-6xl">
+            <h1 className="mt-8 animate-rise text-4xl font-bold leading-[0.95] [animation-delay:80ms] md:text-6xl">
               Pick your time <span className="text-serif-accent text-lime">below.</span>
             </h1>
             <p className="mt-5 max-w-sm animate-rise text-lg text-bone/70 [animation-delay:160ms]">See it book a real call, live.</p>

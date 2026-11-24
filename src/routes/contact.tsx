@@ -99,7 +99,7 @@ function Contact() {
                   <span className="grid size-16 animate-pop place-items-center rounded-full bg-lime text-claret-deep shadow-glow">
                     <Check className="size-7" />
                   </span>
-                  <h2 className="mt-6 text-4xl font-bold">
+                  <h2 className="mt-6 text-3xl font-bold sm:text-4xl">
                     Message <span className="text-serif-accent">sent.</span>
                   </h2>
                   <p className="mt-2 text-muted-foreground">We'll be in touch soon.</p>

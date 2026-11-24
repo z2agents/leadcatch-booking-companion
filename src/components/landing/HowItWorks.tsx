@@ -5,16 +5,16 @@ import { Waveform } from "./PhoneDemo";
 
 export function HowItWorks() {
   return (
-    <section id="how" className="grain relative overflow-hidden bg-claret-deep py-24 text-bone md:py-32">
+    <section id="how" className="grain relative overflow-hidden bg-claret-deep py-16 text-bone md:py-32">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-lime">How it works</p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-5xl font-bold leading-[0.95] md:text-6xl">
+          <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-bold leading-[0.95] md:text-6xl">
             Ring. Talk. <span className="text-serif-accent text-lime">Booked.</span>
           </h2>
         </Reveal>
 
-        <div className="relative mt-16 grid gap-6 md:grid-cols-3">
+        <div className="relative mt-10 grid gap-6 md:mt-16 md:grid-cols-3">
           {/* connector */}
           <svg className="absolute left-0 top-1/2 hidden h-2 w-full -translate-y-1/2 md:block" preserveAspectRatio="none" viewBox="0 0 100 2" aria-hidden>
             <line x1="5" y1="1" x2="95" y2="1" stroke="var(--lime)" strokeWidth="0.4" strokeDasharray="2 2" className="animate-flow" />

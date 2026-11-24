@@ -145,7 +145,7 @@ function LeadDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (v: b
         </div>
       </div>
 
-      <h2 className="mt-6 text-3xl font-bold leading-tight">
+      <h2 className="mt-6 text-2xl font-bold leading-tight sm:text-3xl">
         Where can we <span className="text-serif-accent">reach you?</span>
       </h2>
 

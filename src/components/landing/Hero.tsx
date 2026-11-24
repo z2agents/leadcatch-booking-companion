@@ -22,13 +22,13 @@ export function Hero() {
   const { open: openLead } = useLeadFlow();
   return (
     <section id="top" className="grain relative overflow-hidden bg-hero text-bone">
-      <div className="mx-auto grid max-w-6xl items-center gap-16 px-5 pb-20 pt-32 md:pt-40 lg:grid-cols-[1.1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-14 pt-28 md:pb-20 md:pt-40 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
         <div>
           <span className="inline-flex animate-rise items-center gap-2 rounded-full border border-bone/15 bg-bone/5 px-3 py-1.5 text-xs font-medium text-bone/80">
             <span className="size-1.5 animate-blink rounded-full bg-lime" />
             AI receptionist · 24/7
           </span>
-          <h1 className="mt-6 animate-rise text-6xl font-bold leading-[0.92] [animation-delay:80ms] sm:text-7xl lg:text-[5.5rem]">
+          <h1 className="mt-6 animate-rise text-5xl font-bold leading-[0.92] [animation-delay:80ms] sm:text-7xl lg:text-[5.5rem]">
             You're busy.
             <br />
             <span className="text-serif-accent text-lime">We pick up.</span>
@@ -37,10 +37,10 @@ export function Hero() {
             Answers every call. Books every client.
           </p>
           <div className="mt-9 flex animate-rise flex-wrap gap-3 [animation-delay:240ms]">
-            <Button variant="lime" size="xl" onClick={openLead}>
+            <Button variant="lime" size="xl" className="w-full sm:w-auto" onClick={openLead}>
               Book a free demo call <ArrowRight />
             </Button>
-            <Button asChild variant="bone" size="xl">
+            <Button asChild variant="bone" size="xl" className="w-full sm:w-auto">
               <a href="#how">See how it works</a>
             </Button>
           </div>
@@ -52,13 +52,15 @@ export function Hero() {
             ))}
           </ul>
         </div>
-        <PhoneDemo />
+        <div className="-mb-16 origin-top scale-90 sm:mb-0 sm:scale-100">
+          <PhoneDemo />
+        </div>
       </div>
 
       <div className="relative border-t border-bone/10 py-5">
-        <div className="flex w-max animate-marquee gap-10 whitespace-nowrap">
+        <div className="flex w-max animate-marquee gap-6 whitespace-nowrap sm:gap-10">
           {[...industries, ...industries].map((t, i) => (
-            <span key={i} className="flex items-center gap-10 font-display text-xl text-bone/50">
+            <span key={i} className="flex items-center gap-6 font-display text-base text-bone/50 sm:gap-10 sm:text-xl">
               {t}
               <span className="size-1.5 rounded-full bg-lime" />
             </span>

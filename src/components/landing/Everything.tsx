@@ -22,20 +22,20 @@ import { Waveform } from "./PhoneDemo";
 
 export function Everything() {
   return (
-    <section id="everything" className="relative py-24 md:py-32">
+    <section id="everything" className="relative py-16 md:py-32">
       <div className="dot-grid absolute inset-0 opacity-60 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
       <div className="relative mx-auto max-w-6xl px-5">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-claret-soft">What you get</p>
-          <h2 className="mt-4 max-w-3xl text-5xl font-bold leading-[0.95] text-claret md:text-6xl">
+          <h2 className="mt-4 max-w-3xl text-4xl font-bold leading-[0.95] text-claret md:text-6xl">
             One platform. <span className="text-serif-accent">One login.</span>
           </h2>
           <p className="mt-4 max-w-md text-muted-foreground">Calls, chats, calendar, CRM — all connected.</p>
         </Reveal>
 
-        <div className="mt-14 grid auto-rows-[minmax(220px,auto)] gap-4 md:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:auto-rows-[minmax(220px,auto)] md:grid-cols-6 md:gap-4">
           {/* AI calling */}
-          <Tile className="md:col-span-4" dark icon={Phone} title="AI calling agent" sub="Answers & books, 24/7.">
+          <Tile className="col-span-2 md:col-span-4" dark icon={Phone} title="AI calling agent" sub="Answers & books, 24/7.">
             <div className="mt-6 flex items-center gap-4 rounded-2xl bg-bone/8 p-4">
               <span className="relative grid size-12 place-items-center rounded-full bg-lime text-claret-deep">
                 <span className="absolute inset-0 animate-ring rounded-full bg-lime/50" />
@@ -47,7 +47,7 @@ export function Everything() {
           </Tile>
 
           {/* Missed call text back */}
-          <Tile className="md:col-span-2" icon={PhoneMissed} title="Missed-call text-back" sub="Texts back in seconds.">
+          <Tile compact className="md:col-span-2" icon={PhoneMissed} title="Missed-call text-back" sub="Texts back in seconds.">
             <div className="mt-5 space-y-2 text-[13px]">
               <div className="flex items-center gap-2 text-xs text-danger">
                 <PhoneMissed className="size-3.5" /> Missed call · 2:14 PM
@@ -60,7 +60,7 @@ export function Everything() {
           </Tile>
 
           {/* Chat agents */}
-          <Tile className="md:col-span-2" icon={MessageCircle} title="AI chat agents" sub="WhatsApp, Instagram, Facebook, web.">
+          <Tile compact className="md:col-span-2" icon={MessageCircle} title="AI chat agents" sub="WhatsApp, Instagram, Facebook, web.">
             <div className="mt-6 flex justify-between">
               {[MessageCircle, Instagram, Facebook, Globe].map((I, k) => (
                 <span key={k} className="grid size-12 animate-float place-items-center rounded-2xl bg-claret text-lime shadow-lift" style={{ animationDelay: `${k * 0.3}s` }}>
@@ -71,12 +71,12 @@ export function Everything() {
           </Tile>
 
           {/* Calendar */}
-          <Tile className="md:col-span-4 md:row-span-2" icon={CalendarDays} title="Calendar & booking" sub="Synced with Google Calendar.">
+          <Tile className="col-span-2 md:col-span-4 md:row-span-2" icon={CalendarDays} title="Calendar & booking" sub="Synced with Google Calendar.">
             <MiniCalendar />
           </Tile>
 
           {/* Website */}
-          <Tile className="md:col-span-2" dark icon={Globe} title="Hosted website" sub="Your AI built in.">
+          <Tile compact className="md:col-span-2" dark icon={Globe} title="Hosted website" sub="Your AI built in.">
             <div className="mt-5 overflow-hidden rounded-xl border border-bone/10 bg-ink">
               <div className="flex gap-1 border-b border-bone/10 px-2.5 py-2">
                 {[0, 1, 2].map((k) => <span key={k} className="size-2 rounded-full bg-bone/25" />)}
@@ -93,7 +93,7 @@ export function Everything() {
           </Tile>
 
           {/* Widgets */}
-          <Tile className="md:col-span-2" icon={MousePointerClick} title="Website widgets" sub="Chat + booking on your site.">
+          <Tile compact className="md:col-span-2" icon={MousePointerClick} title="Website widgets" sub="Chat + booking on your site.">
             <div className="mt-5 flex items-end justify-end gap-2">
               <span className="rounded-2xl rounded-br-md bg-card px-3 py-2 text-xs shadow-lift">Need a booking? 👋</span>
               <span className="grid size-11 place-items-center rounded-full bg-claret text-lime shadow-lift">
@@ -103,7 +103,7 @@ export function Everything() {
           </Tile>
 
           {/* CRM */}
-          <Tile className="md:col-span-2" icon={Users} title="CRM & pipeline" sub="Every lead, tracked.">
+          <Tile compact className="md:col-span-2" icon={Users} title="CRM & pipeline" sub="Every lead, tracked.">
             <div className="mt-5 grid grid-cols-3 gap-2">
               {[
                 { h: "New", n: 3 },
@@ -121,7 +121,7 @@ export function Everything() {
           </Tile>
 
           {/* Automations */}
-          <Tile className="md:col-span-2" dark icon={Workflow} title="Automations" sub="Confirm, remind, follow up.">
+          <Tile compact className="md:col-span-2" dark icon={Workflow} title="Automations" sub="Confirm, remind, follow up.">
             <div className="mt-6 flex items-center justify-between gap-1">
               {[
                 { i: Check, l: "Confirm" },
@@ -143,8 +143,8 @@ export function Everything() {
           </Tile>
 
           {/* Dashboard */}
-          <Tile className="md:col-span-6" icon={LayoutDashboard} title="Your dashboard" sub="All of it. One login." horizontal>
-            <div className="flex h-24 flex-1 items-end gap-2">
+          <Tile className="col-span-2 md:col-span-6" icon={LayoutDashboard} title="Your dashboard" sub="All of it. One login." horizontal>
+            <div className="flex h-16 items-end gap-2 sm:h-24 md:flex-1">
               {[35, 50, 42, 64, 58, 78, 70, 92, 85, 100].map((h, k) => (
                 <div
                   key={k}
@@ -167,6 +167,7 @@ function Tile({
   title,
   sub,
   horizontal,
+  compact,
   children,
 }: {
   className?: string;
@@ -175,12 +176,14 @@ function Tile({
   title: string;
   sub: string;
   horizontal?: boolean;
+  /** Half-width on phones: show icon, title and line only; the mini visual returns from `sm`. */
+  compact?: boolean;
   children: ReactNode;
 }) {
   return (
     <Reveal className={className}>
       <div
-        className={`group h-full rounded-3xl p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-lift ${
+        className={`group h-full rounded-3xl p-4 transition-all sm:p-6 duration-500 hover:-translate-y-1 hover:shadow-lift ${
           dark ? "bg-claret text-bone" : "border border-border bg-card text-claret"
         } ${horizontal ? "flex flex-col gap-6 md:flex-row md:items-center" : ""}`}
       >
@@ -188,10 +191,10 @@ function Tile({
           <span className={`grid size-10 place-items-center rounded-xl ${dark ? "bg-bone/10 text-lime" : "bg-claret text-lime"}`}>
             <Icon className="size-5" />
           </span>
-          <h3 className="mt-4 text-xl font-semibold">{title}</h3>
+          <h3 className="mt-4 text-base font-semibold sm:text-xl">{title}</h3>
           <p className={`mt-1 text-sm ${dark ? "text-bone/60" : "text-muted-foreground"}`}>{sub}</p>
         </div>
-        {children}
+        <div className={compact ? "hidden sm:contents" : "contents"}>{children}</div>
       </div>
     </Reveal>
   );
@@ -214,15 +217,15 @@ function MiniCalendar() {
           <span className="size-1.5 animate-blink rounded-full bg-lime-deep" /> Google Calendar synced
         </span>
       </div>
-      <div className="grid grid-cols-5 gap-2">
-        {days.map((d) => (
-          <div key={d}>
-            <p className="mb-2 text-center text-[11px] font-medium text-muted-foreground">{d}</p>
-            <div className="relative h-56 rounded-xl bg-bone-deep/60">
+      <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
+        {days.map((d, di) => (
+          <div key={d} className={di < 2 ? "hidden sm:block" : ""}>
+            <p className="mb-2 text-center text-xs font-medium text-muted-foreground sm:text-[11px]">{d}</p>
+            <div className="relative h-40 rounded-xl bg-bone-deep/60 sm:h-56">
               {(events[d] ?? []).map((e) => (
                 <div
                   key={e.label}
-                  className={`absolute inset-x-1 rounded-lg px-1.5 py-1 text-[10px] font-semibold ${
+                  className={`absolute inset-x-1 rounded-lg px-1.5 py-1 text-xs font-semibold sm:text-[10px] ${
                     e.hot ? "animate-pop bg-lime text-claret-deep shadow-glow" : "bg-claret text-bone"
                   }`}
                   style={{ top: `${e.top}%`, height: `${e.h}%` }}

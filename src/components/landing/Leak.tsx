@@ -36,19 +36,19 @@ export function Leak() {
   const loss = monthlyLeak(calls, value);
 
   return (
-    <section id="leak" className="relative overflow-hidden py-24 md:py-32">
+    <section id="leak" className="relative overflow-hidden py-16 md:py-32">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-claret-soft">The silent leak</p>
-          <h2 className="mt-4 max-w-4xl text-5xl font-bold leading-[0.95] text-claret md:text-7xl">
+          <h2 className="mt-4 max-w-4xl text-4xl font-bold leading-[0.95] text-claret md:text-7xl">
             Your business is leaking <span className="mark-lime">$10K</span> every month from{" "}
             <span className="text-serif-accent">slow follow-up.</span>
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-3">
+        <div className="-mx-5 mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:mt-14 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0">
           {scenes.map((s, i) => (
-            <Reveal key={s.tag} delay={i * 120}>
+            <Reveal key={s.tag} delay={i * 120} className="w-[72%] shrink-0 snap-center sm:w-auto">
               <figure className="group relative aspect-[4/5] overflow-hidden rounded-3xl shadow-lift">
                 <img
                   src={s.img}
@@ -62,7 +62,7 @@ export function Leak() {
                 <span className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full bg-danger px-3 py-1 text-xs font-semibold text-bone">
                   <PhoneMissed className="size-3.5" /> {s.missed} missed
                 </span>
-                <figcaption className="absolute bottom-5 left-5 font-display text-3xl font-bold text-bone">
+                <figcaption className="absolute bottom-5 left-5 font-display text-2xl font-bold text-bone sm:text-3xl">
                   {s.tag}.
                 </figcaption>
               </figure>
@@ -74,9 +74,9 @@ export function Leak() {
         <Reveal className="mt-6">
           <div className="grid gap-px overflow-hidden rounded-3xl bg-border sm:grid-cols-3">
             {timeline.map(({ icon: Icon, t, l }, i) => (
-              <div key={t} className="flex items-center gap-4 bg-card p-6">
+              <div key={t} className="flex items-center gap-4 bg-card p-4 sm:p-6">
                 <span
-                  className={`grid size-12 shrink-0 place-items-center rounded-2xl ${
+                  className={`grid size-10 shrink-0 place-items-center rounded-2xl sm:size-12 ${
                     i === 2 ? "bg-danger text-bone" : "bg-bone-deep text-claret"
                   }`}
                 >
@@ -91,12 +91,12 @@ export function Leak() {
           </div>
         </Reveal>
 
-        <div className="mt-20 grid items-center gap-12 lg:grid-cols-2">
+        <div className="mt-14 grid items-center gap-10 md:mt-20 lg:grid-cols-2 lg:gap-12">
           <div className="grid gap-8">
             {stats.map((s, i) => (
               <Reveal key={s.n} delay={i * 100}>
                 <div className="flex items-baseline gap-5 border-b border-border pb-6">
-                  <span className="font-display text-6xl font-bold text-claret md:text-7xl">{s.n}</span>
+                  <span className="font-display text-5xl font-bold text-claret md:text-7xl">{s.n}</span>
                   <span className="max-w-[14rem] text-muted-foreground">{s.t}</span>
                 </div>
               </Reveal>
@@ -104,9 +104,9 @@ export function Leak() {
           </div>
 
           <Reveal delay={150}>
-            <div className="grain rounded-[2rem] bg-claret p-8 text-bone shadow-lift md:p-10">
+            <div className="grain rounded-[2rem] bg-claret p-6 text-bone shadow-lift md:p-10">
               <p className="text-sm uppercase tracking-[0.2em] text-bone/60">Your monthly leak</p>
-              <p className="mt-3 font-display text-6xl font-bold text-lime tabular-nums md:text-7xl">
+              <p className="mt-3 font-display text-5xl font-bold text-lime tabular-nums md:text-7xl">
                 {money(loss)}
                 <span className="text-2xl text-bone/60">/mo</span>
               </p>

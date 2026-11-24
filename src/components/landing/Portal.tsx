@@ -26,12 +26,12 @@ const slots = [
 
 export function Portal() {
   return (
-    <section id="portal" className="grain relative overflow-hidden bg-hero py-24 text-bone md:py-32">
+    <section id="portal" className="grain relative overflow-hidden bg-hero py-16 text-bone md:py-32">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal className="grid items-end gap-6 md:grid-cols-2">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-lime">Your portal</p>
-            <h2 className="mt-4 text-5xl font-bold leading-[0.95] md:text-7xl">
+            <h2 className="mt-4 text-4xl font-bold leading-[0.95] md:text-7xl">
               Glance. <span className="text-serif-accent text-lime">Done.</span>
             </h2>
           </div>
@@ -40,7 +40,7 @@ export function Portal() {
           </p>
         </Reveal>
 
-        <Reveal delay={150} className="mt-14">
+        <Reveal delay={150} className="mt-10 md:mt-14">
           <div className="overflow-hidden rounded-[2rem] border border-bone/10 bg-claret-deep shadow-lift">
             <div className="flex">
               {/* sidebar */}
@@ -54,25 +54,25 @@ export function Portal() {
               <div className="flex-1 p-5 md:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <p className="font-display text-xl font-semibold">Good morning, Maya 👋</p>
-                  <span className="flex items-center gap-2 rounded-full bg-bone/10 px-3 py-1.5 text-xs">
+                  <span className="hidden items-center gap-2 rounded-full bg-bone/10 px-3 py-1.5 text-xs sm:flex">
                     <span className="size-1.5 animate-blink rounded-full bg-lime" /> Google Calendar synced
                   </span>
                 </div>
 
-                <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
                   {kpis.map(({ i: I, l, v, d }) => (
-                    <div key={l} className="rounded-2xl bg-bone/5 p-4">
+                    <div key={l} className="rounded-2xl bg-bone/5 p-3 sm:p-4">
                       <div className="flex items-center justify-between text-xs text-bone/60">
-                        <span className="flex items-center gap-1.5"><I className="size-3.5" /> {l}</span>
-                        <span className="rounded-full bg-lime/15 px-2 py-0.5 text-lime">{d}</span>
+                        <span className="flex items-center gap-1.5"><I className="hidden size-3.5 sm:block" /> {l}</span>
+                        <span className="hidden rounded-full bg-lime/15 px-2 py-0.5 text-lime sm:inline">{d}</span>
                       </div>
-                      <p className="mt-2 font-display text-3xl font-bold">{v}</p>
+                      <p className="mt-2 font-display text-xl font-bold sm:text-3xl">{v}</p>
                     </div>
                   ))}
                 </div>
 
                 <div className="mt-4 grid gap-4 lg:grid-cols-[1.6fr_1fr]">
-                  <div className="rounded-2xl bg-bone/5 p-4">
+                  <div className="hidden rounded-2xl bg-bone/5 p-4 sm:block">
                     <div className="grid grid-cols-5 gap-2">
                       {["Mon", "Tue", "Wed", "Thu", "Fri"].map((d, di) => (
                         <div key={d}>
@@ -109,7 +109,7 @@ export function Portal() {
                             <p className="truncate text-sm font-medium">{f.n}</p>
                             <p className="truncate text-xs text-bone/55">{f.s}</p>
                           </div>
-                          <span className="rounded-full bg-lime/15 px-2 py-0.5 text-[10px] text-lime">{f.c}</span>
+                          <span className="rounded-full bg-lime/15 px-2 py-0.5 text-xs text-lime sm:text-[10px]">{f.c}</span>
                         </div>
                       ))}
                     </div>
