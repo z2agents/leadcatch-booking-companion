@@ -5,7 +5,6 @@ import {
   Check,
   Facebook,
   Instagram,
-  LayoutDashboard,
   MessageCircle,
   MessageSquareText,
   Phone,
@@ -138,19 +137,6 @@ export function Everything() {
                   </div>
                   {k < arr.length - 1 && <span className="mx-1 mb-5 h-px flex-1 border-t border-dashed border-lime/50" />}
                 </div>
-              ))}
-            </div>
-          </Tile>
-
-          {/* Dashboard */}
-          <Tile className="col-span-2 md:col-span-6" icon={LayoutDashboard} title="Your dashboard" sub="All of it. One login." horizontal>
-            <div className="flex h-16 items-end gap-2 sm:h-24 md:flex-1">
-              {[35, 50, 42, 64, 58, 78, 70, 92, 85, 100].map((h, k) => (
-                <div
-                  key={k}
-                  className={`flex-1 rounded-t-lg ${k === 9 ? "bg-lime" : "bg-claret"}`}
-                  style={{ height: `${h}%`, opacity: 0.35 + k * 0.065 }}
-                />
               ))}
             </div>
           </Tile>

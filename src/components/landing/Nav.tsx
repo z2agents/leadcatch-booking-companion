@@ -7,7 +7,6 @@ const links = [
   { href: "#leak", label: "The problem" },
   { href: "#how", label: "How it works" },
   { href: "#everything", label: "What you get" },
-  { href: "#portal", label: "Your portal" },
 ];
 
 /** `onHome` keeps in-page anchors; other pages link back to the homepage sections. */

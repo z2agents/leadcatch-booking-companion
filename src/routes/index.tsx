@@ -4,7 +4,6 @@ import { Hero } from "@/components/landing/Hero";
 import { Leak } from "@/components/landing/Leak";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { Everything } from "@/components/landing/Everything";
-import { Portal } from "@/components/landing/Portal";
 import { Statement } from "@/components/landing/Statement";
 import { Book } from "@/components/landing/Book";
 import { Faq } from "@/components/landing/Faq";
@@ -38,7 +37,6 @@ function Index() {
       <HowItWorks />
       <AutoOpenAfter id="how" />
       <Everything />
-      <Portal />
       <Statement />
       <Book />
       <Faq />
